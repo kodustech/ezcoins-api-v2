@@ -1,0 +1,33 @@
+{
+  "name": "ezcoins-api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon src/server.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-async-errors": "^3.1.1",
+    "jsonwebtoken": "^8.5.1",
+    "moment": "^2.27.0",
+    "mysql2": "^2.1.0",
+    "node-cron": "^2.0.3",
+    "sequelize": "^6.3.4",
+    "sequelize-paginate": "^1.1.6",
+    "youch": "^2.0.10",
+    "yup": "^0.29.3"
+  },
+  "devDependencies": {
+    "eslint": "^7.6.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-plugin-import": "^2.22.0",
+    "nodemon": "^2.0.4",
+    "prettier": "^2.0.5",
+    "sequelize-cli": "^6.2.0",
+    "sucrase": "^3.15.0"
+  }
+}
