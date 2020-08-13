@@ -4,5 +4,10 @@
     "source.fixAll.eslint": true
   },
   "files.eol": "\n",
-  "editor.tabSize": 2
+  "editor.tabSize": 2,
+  "workbench.colorCustomizations": {
+    "activityBar.background": "#4D1059",
+    "titleBar.activeBackground": "#6C167C",
+    "titleBar.activeForeground": "#FEFBFE"
+  }
 }

@@ -10,9 +10,9 @@ import Cron from './cron';
 class App {
   constructor() {
     this.server = express();
+    // Cron.run();
     this.middleware();
     this.routes();
-    Cron.run();
     this.exceptionHandler();
   }
 
