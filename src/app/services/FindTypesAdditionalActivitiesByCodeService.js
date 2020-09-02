@@ -6,7 +6,7 @@ class FindTypesAdditionalActivitiesByCodeService {
     if (transaction) options = { transaction };
 
     return TypesAdditionalActivities.findOne({
-      attributes: ['id', 'name', 'ezc'],
+      attributes: ['id', 'description', 'ezc'],
       where: {
         code: pCode,
       },
