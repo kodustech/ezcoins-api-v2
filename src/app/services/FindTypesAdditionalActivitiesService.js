@@ -3,7 +3,7 @@ import TypesAdditionalActivities from '../models/TypesAdditionalActivities';
 class FindTypesAdditionalActivitiesServicer {
   async run({ transaction = null, type_additional_activities: pTypeAdditionalActivitiesId }) {
     let options = {
-      attributes: ['id', 'code', 'name', 'ezc'],
+      attributes: ['id', 'code', 'description', 'ezc'],
     };
     if (transaction) options = { ...options, transaction };
 
