@@ -5,14 +5,12 @@ import cors from 'cors';
 import Youch from 'youch';
 import routes from './routes';
 import './database';
-import Cron from './cron';
 
 class App {
   constructor() {
     this.server = express();
     this.middleware();
     this.routes();
-    Cron.run();
     this.exceptionHandler();
   }
 
