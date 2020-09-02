@@ -6,11 +6,16 @@ module.exports = {
         primaryKey: true,
         autoIncrement: true,
       },
-      name: {
+      description: {
         type: Sequelize.STRING(200),
         allowNull: false,
       },
       ezc: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        defaultValue: 0,
+      },
+      status: {
         type: Sequelize.INTEGER,
         allowNull: false,
         defaultValue: 0,

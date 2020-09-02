@@ -18,8 +18,8 @@ module.exports = {
         type: Sequelize.STRING(500),
         allowNull: false,
       },
-      avatar_id: {
-        type: Sequelize.INTEGER,
+      avatar: {
+        type: Sequelize.TEXT,
         allowNull: true,
       },
       hired_at: {
