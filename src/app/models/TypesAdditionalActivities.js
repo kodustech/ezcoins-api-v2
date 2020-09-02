@@ -5,7 +5,7 @@ class TypesAdditionalActivities extends Model {
   static init(sequelize) {
     super.init(
       {
-        name: Sequelize.STRING(200),
+        description: Sequelize.STRING(200),
         code: Sequelize.STRING(40),
         ezc: Sequelize.INTEGER,
       },

@@ -14,7 +14,7 @@ class ListAdditionalActivitiesService {
         {
           model: TypesAdditionalActivities,
           as: 'typeAdditionalActivities',
-          attributes: ['code', 'name', 'ezc'],
+          attributes: ['code', 'description', 'ezc'],
         },
         {
           model: Users,

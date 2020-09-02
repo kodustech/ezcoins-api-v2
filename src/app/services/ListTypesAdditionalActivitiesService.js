@@ -3,7 +3,7 @@ import TypesAdditionalActivities from '../models/TypesAdditionalActivities';
 class ListTypesAdditionalActivitiesService {
   async run({ page, paginate, transaction = null }) {
     let options = {
-      attributes: ['id', 'code', 'name', 'ezc'],
+      attributes: ['id', 'code', 'description', 'ezc'],
     };
     if (transaction) options = { transaction };
 

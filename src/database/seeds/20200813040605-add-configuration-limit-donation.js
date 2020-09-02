@@ -1,5 +1,3 @@
-'use strict';
-
 module.exports = {
   up: async (queryInterface) =>
     queryInterface.bulkInsert('Configurations', [
@@ -9,5 +7,5 @@ module.exports = {
       },
     ]),
 
-  down: async (queryInterface, Sequelize) => queryInterface.bulkDelete('Configurations', null, {}),
+  down: async (queryInterface) => queryInterface.bulkDelete('Configurations', null, {}),
 };
