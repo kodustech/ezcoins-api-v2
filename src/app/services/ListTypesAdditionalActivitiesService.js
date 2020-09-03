@@ -4,6 +4,9 @@ class ListTypesAdditionalActivitiesService {
   async run({ page, paginate, transaction = null }) {
     let options = {
       attributes: ['id', 'code', 'description', 'ezc'],
+      where: {
+        status: 0,
+      },
     };
     if (transaction) options = { transaction };
 
