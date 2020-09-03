@@ -1,6 +1,7 @@
 import database from '../../database';
 import CreateDonateService from '../services/CreateDonateService';
 import FindUserByDiscordIdService from '../services/FindUserByDiscordIdService';
+import DonateYourselfExceptions from '../validations/DonateYourselfExceptions';
 
 class DonationsController {
   async store(req, res) {
@@ -13,6 +14,9 @@ class DonationsController {
         });
 
         receiverId = id;
+      }
+      if (receiverId === req.session.id) {
+        throw new DonateYourselfExceptions();
       }
       const donation = await CreateDonateService.run({
         donation: {
