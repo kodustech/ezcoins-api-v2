@@ -1,4 +1,5 @@
 import FindWalletByUserIdService from './FindWalletByUserIdService';
+import DonateNegativeExceptions from '../validations/DonateNegativeExceptions';
 
 class DonationWithdrawlService {
   async run({ quantity: pQuantity, userId: pUserId, transaction = null }) {
@@ -6,6 +7,8 @@ class DonationWithdrawlService {
       userId: pUserId,
       transaction,
     });
+
+    if (Math.sign(pQuantity) === -1) throw new DonateNegativeExceptions();
 
     wallet.to_offer = +wallet.to_offer - +pQuantity;
     return wallet.save();
