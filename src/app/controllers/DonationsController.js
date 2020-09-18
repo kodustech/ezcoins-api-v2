@@ -22,7 +22,7 @@ class DonationsController {
         donation: {
           sender_user_id: req.session.id,
           receiver_user_id: receiverId,
-          quantity: req.params.quantity,
+          quantity: Math.ceil(req.params.quantity),
           reason: req.body.reason,
         },
         transaction,
