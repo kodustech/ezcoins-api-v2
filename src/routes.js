@@ -32,6 +32,10 @@ routes.post('/activities/:code', authMiddleware, AdditionalActivitiesController.
 
 // #region - Products
 routes.get('/products', ProductController.index);
+routes.get('/products/:id', authMiddleware, ProductController.findById);
+routes.post('/products', authMiddleware, ProductController.store);
+routes.put('/products/:id', authMiddleware, ProductController.update);
+routes.delete('/products/:id', authMiddleware, ProductController.delete);
 // #endregion
 
 routes.get('/rank', RankController.index);
