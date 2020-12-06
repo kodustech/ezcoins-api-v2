@@ -7,6 +7,11 @@ import TypesAdditionalActivitiesController from './app/controllers/TypesAddition
 import AdditionalActivitiesController from './app/controllers/AdditionalActivitiesController';
 import RankController from './app/controllers/RankController';
 import ProductController from './app/controllers/ProductController';
+import UserAdditionalActivitiesController from './app/controllers/UserAdditionalActivitiesController';
+import ExchangesController from './app/controllers/ExchangesController';
+import UserExchangeController from './app/controllers/UserExchangeController';
+import EventController from './app/controllers/EventController';
+import UserEventsController from './app/controllers/UserEventsController';
 
 const routes = Router();
 
@@ -15,7 +20,9 @@ const routes = Router();
 routes.get('/users', authMiddleware, UsersController.index);
 routes.post('/users', authMiddleware, UsersController.store);
 routes.get('/users/balance', authMiddleware, UserBalanceController.index);
-// #endregion
+routes.get('/users/activities', authMiddleware, UserAdditionalActivitiesController.index);
+routes.get('/users/exchanges', authMiddleware, UserExchangeController.index);
+routes.get('/users/events', authMiddleware, UserEventsController.index);
 
 // #region - Donation
 routes.post('/donate/:quantity/:receiverId', authMiddleware, DonationsController.store);
@@ -32,7 +39,22 @@ routes.post('/activities/:code', authMiddleware, AdditionalActivitiesController.
 
 // #region - Products
 routes.get('/products', ProductController.index);
+routes.get('/products/:id', authMiddleware, ProductController.findById);
+routes.post('/products', authMiddleware, ProductController.store);
+routes.put('/products/:id', authMiddleware, ProductController.update);
+routes.delete('/products/:id', authMiddleware, ProductController.delete);
 // #endregion
 
 routes.get('/rank', RankController.index);
+
+// #region - Exchanges
+routes.get('/exchanges', authMiddleware, ExchangesController.index);
+routes.post('/exchanges', authMiddleware, ExchangesController.store);
+// #endregion
+
+// #region - Events
+routes.get('/events', authMiddleware, EventController.index);
+routes.post('/events', authMiddleware, EventController.store);
+
+// #endregion
 export default routes;
