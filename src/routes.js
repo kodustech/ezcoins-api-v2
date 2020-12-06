@@ -8,6 +8,8 @@ import AdditionalActivitiesController from './app/controllers/AdditionalActiviti
 import RankController from './app/controllers/RankController';
 import ProductController from './app/controllers/ProductController';
 import UserAdditionalActivitiesController from './app/controllers/UserAdditionalActivitiesController';
+import ExchangesController from './app/controllers/ExchangesController';
+import UserExchangeController from './app/controllers/UserExchangeController';
 
 const routes = Router();
 
@@ -17,6 +19,7 @@ routes.get('/users', authMiddleware, UsersController.index);
 routes.post('/users', authMiddleware, UsersController.store);
 routes.get('/users/balance', authMiddleware, UserBalanceController.index);
 routes.get('/users/activities', authMiddleware, UserAdditionalActivitiesController.index);
+routes.get('/users/exchanges', authMiddleware, UserExchangeController.index);
 // #endregion
 
 // #region - Donation
@@ -41,4 +44,10 @@ routes.delete('/products/:id', authMiddleware, ProductController.delete);
 // #endregion
 
 routes.get('/rank', RankController.index);
+
+// #region - Exchanges
+routes.get('/exchanges', authMiddleware, ExchangesController.index);
+routes.post('/exchanges', authMiddleware, ExchangesController.store);
+
+// #endregion
 export default routes;

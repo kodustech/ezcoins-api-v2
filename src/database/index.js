@@ -8,8 +8,9 @@ import Configurations from '../app/models/Configurations';
 import TypesAdditionalActivities from '../app/models/TypesAdditionalActivities';
 import AdditionalActivities from '../app/models/AdditionalActivities';
 import Products from '../app/models/Products';
+import Exchanges from '../app/models/Exchanges';
 
-const models = [Users, Wallets, Donations, Configurations, TypesAdditionalActivities, AdditionalActivities, Products];
+const models = [Users, Wallets, Donations, Configurations, TypesAdditionalActivities, AdditionalActivities, Products, Exchanges];
 
 class Database {
   constructor() {
