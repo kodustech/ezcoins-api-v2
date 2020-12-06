@@ -7,6 +7,7 @@ class Wallets extends Model {
       {
         to_offer: Sequelize.INTEGER,
         to_exchange: Sequelize.INTEGER,
+        earning_events: Sequelize.INTEGER,
         extras: Sequelize.INTEGER,
         received: Sequelize.INTEGER,
         balance: Sequelize.INTEGER,
