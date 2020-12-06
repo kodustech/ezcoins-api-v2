@@ -10,6 +10,7 @@ class UserBalanceController {
       balance: +wallet.balance,
       received: +wallet.received,
       to_offer: +wallet.to_offer,
+      earning_events: +wallet.earning_events,
       to_exchange: +wallet.to_exchange,
       extras: +wallet.extras,
     });
