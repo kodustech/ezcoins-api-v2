@@ -6,6 +6,7 @@ import UserBalanceController from './app/controllers/UserBalanceController';
 import TypesAdditionalActivitiesController from './app/controllers/TypesAdditionalActivitiesController';
 import AdditionalActivitiesController from './app/controllers/AdditionalActivitiesController';
 import RankController from './app/controllers/RankController';
+import UserAdditionalActivitiesController from './app/controllers/UserAdditionalActivitiesController';
 
 const routes = Router();
 
@@ -14,6 +15,7 @@ const routes = Router();
 routes.get('/users', authMiddleware, UsersController.index);
 routes.post('/users', authMiddleware, UsersController.store);
 routes.get('/users/balance', authMiddleware, UserBalanceController.index);
+routes.get('/users/activities', authMiddleware, UserAdditionalActivitiesController.index);
 // #endregion
 
 // #region - Donation
