@@ -6,6 +6,7 @@ import UserBalanceController from './app/controllers/UserBalanceController';
 import TypesAdditionalActivitiesController from './app/controllers/TypesAdditionalActivitiesController';
 import AdditionalActivitiesController from './app/controllers/AdditionalActivitiesController';
 import RankController from './app/controllers/RankController';
+import ProductController from './app/controllers/ProductController';
 import UserAdditionalActivitiesController from './app/controllers/UserAdditionalActivitiesController';
 
 const routes = Router();
@@ -29,6 +30,14 @@ routes.get('/typesAdditionalActivities', TypesAdditionalActivitiesController.ind
 // #region - Additional Activities
 routes.get('/activities', authMiddleware, AdditionalActivitiesController.index);
 routes.post('/activities/:code', authMiddleware, AdditionalActivitiesController.store);
+// #endregion
+
+// #region - Products
+routes.get('/products', ProductController.index);
+routes.get('/products/:id', authMiddleware, ProductController.findById);
+routes.post('/products', authMiddleware, ProductController.store);
+routes.put('/products/:id', authMiddleware, ProductController.update);
+routes.delete('/products/:id', authMiddleware, ProductController.delete);
 // #endregion
 
 routes.get('/rank', RankController.index);
