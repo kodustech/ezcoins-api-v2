@@ -1,0 +1,36 @@
+version: '3'
+
+services:
+  ezcoinsapi:
+    image: node:14.17.5-alpine3.14
+    container_name: ezcoinsapi
+    command: sh -c "cd /usr/src/api && yarn run build && node dist/server.js"
+    networks:
+      - node-network
+    volumes:
+      - .:/usr/src/api
+    ports:
+      - 3003:3003
+    tty: true
+    depends_on:
+      - ezcoinsapidb
+
+  ezcoinsapidb:
+    image: mysql:5.7
+    command: --innodb-use-native-aio=0
+    container_name: ezcoinsapidb
+    restart: always
+    tty: true
+    volumes:
+      - ./mysql:/var/lib/mysql
+    environment:
+      - MYSQL_DATABASE=${DB_NAME}
+      - MYSQL_ROOT_PASSWORD=${DB_PASSWORD}
+    networks:
+      - node-network
+    ports:
+      - 3306:3306
+
+networks:
+  node-network:
+    driver: bridge
