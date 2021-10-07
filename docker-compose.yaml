@@ -12,24 +12,6 @@ services:
     ports:
       - 3003:3003
     tty: true
-    depends_on:
-      - ezcoinsapidb
-
-  ezcoinsapidb:
-    image: mysql:5.7
-    command: --innodb-use-native-aio=0
-    container_name: ezcoinsapidb
-    restart: always
-    tty: true
-    volumes:
-      - ./mysql:/var/lib/mysql
-    environment:
-      - MYSQL_DATABASE=${DB_NAME}
-      - MYSQL_ROOT_PASSWORD=${DB_PASSWORD}
-    networks:
-      - node-network
-    ports:
-      - 3306:3306
 
 networks:
   node-network:
