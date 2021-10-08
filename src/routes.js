@@ -17,6 +17,7 @@ const routes = Router();
 
 // Rotas
 // #region - Users
+routes.post('/user/auth', UsersController.auth);
 routes.get('/users', authMiddleware, UsersController.index);
 routes.post('/users', authMiddleware, UsersController.store);
 routes.get('/users/balance', authMiddleware, UserBalanceController.index);
