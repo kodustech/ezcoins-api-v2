@@ -1,6 +1,7 @@
 import Users from '../models/Users';
 import UserNotFoundExceptions from '../validations/UserNotFoundExceptions';
 import bcrypt from 'bcryptjs';
+import jwt from 'jsonwebtoken';
 
 class AuthUserService {
   async run({ transaction = null, email: pEmail, password: pPassword }) {
@@ -18,8 +19,10 @@ class AuthUserService {
     if (!compare) {
       throw new UserNotFoundExceptions();
     }
-    console.log('my user', user);
-    return user;
+    const token = jwt.sign({ id: user.id }, process.env.SECRET, {
+      expiresIn: process.env.EXPIRES_TOKEN,
+    });
+    return { token, auth: true };
   }
 }
 export default new AuthUserService();

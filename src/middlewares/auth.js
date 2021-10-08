@@ -35,11 +35,9 @@ export default async (req, res, next) => {
   }
 
   try {
-    const decoded = await promisify(jwt.verify)(token, {
+    const decoded = await promisify(jwt.verify)(token, process.env.SECRET, {
       expiresIn: process.env.EXPIRES_TOKEN,
-      secret: process.env.SECRET,
     });
-
     const user = await Users.findByPk(decoded.id);
     if (!user) {
       throw new UserSessionNotFoundExceptions();
